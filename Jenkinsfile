@@ -13,7 +13,7 @@ pipeline {
                 cleanWs()
                 sh '''
                     docker run --user $(id -u) -v ${WORKSPACE}:${WORKSPACE}:rw \
-                    -e BURP_START_URL=https://ginandjuice.shop/ \
+                    -e BURP_START_URL=http://127.0.0.1:8082/WebGoat \
                     -e BURP_REPORT_FILE_PATH=${WORKSPACE}/dastardly-report.xml \
                     public.ecr.aws/portswigger/dastardly:latest
                 '''
